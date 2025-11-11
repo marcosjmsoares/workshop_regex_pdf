@@ -59,4 +59,4 @@ A aplicação pode ser executada manualmente para verificar novas mensagens no S
     python3 __init__.py
 
 ##Conteúdo Adicional
-Este projeto inclui um arquivo regex.md com conteúdo básico sobre expressões regulares (Regex), utilizado para processar textos semi-estruturados extraídos dos PDFs.
+Este projeto inclui um arquivo regex.md com conteúdo básico sobre expressões regulares (Regex), utilizado para processar textos semi-estruturados extraídos dos PDFs.# workshop_regex_pdf

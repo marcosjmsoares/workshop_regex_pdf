@@ -1,12 +1,13 @@
 [tool.poetry]
-name = "101-regex"
+name = "workshop-regex-pdf"
 version = "0.1.0"
-description = "Projeto para aula de extração de dados em PDF e uso de Regex"
-authors = ["Fabio Cantarim <fabio.cantarim@gmail.com>"]
+description = ""
+authors = ["Marcos Soares <marcosjmsoares@gmail.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.13"
 camelot-py = "^0.11.0"
 opencv-python = "^4.9.0.80"
 matplotlib = "^3.8.3"
@@ -22,7 +23,6 @@ schedule = "^1.2.2"
 pytz = "^2024.2"
 boto3 = "^1.35.29"
 
-
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"

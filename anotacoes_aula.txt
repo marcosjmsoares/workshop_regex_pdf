@@ -1,0 +1,16 @@
+Os pdfs estao no repositorio na pasta src/files/pdf/jornada
+
+
+aula começa em 11
+
+minuto 20 = configurando AWS
+
+minuto 30 = upload arquivos na AWS
+
+minuto 35 = importando pdf
+
+minuto 39 = configurando arquivo .py
+
+minuto 1:22 = executando arquivo text_pdf_extractor.py
+
+minuto 2:16 =  carregando arquivo via python

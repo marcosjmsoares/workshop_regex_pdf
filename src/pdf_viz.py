@@ -7,8 +7,11 @@ import pandas as pd
 
 print(matplotlib.get_backend())
 
-file_name = "Redrex - Fatura (2)"
-path = os.path.abspath(f"src/files/pdf/redrex/{file_name}.pdf")
+file_name = "corretora_jornada_de_dados (1)"
+path = os.path.abspath(f"src/files/pdf/jornada/{file_name}.pdf")
+
+# file_name = "Redrex - Fatura (2)"
+# path = os.path.abspath(f"src/files/pdf/redrex/{file_name}.pdf")
 
 tables = camelot.read_pdf(
     path,

@@ -22,6 +22,7 @@ isort = "^5.13.2"
 schedule = "^1.2.2"
 pytz = "^2024.2"
 boto3 = "^1.35.29"
+python-dotenv = "^1.2.1"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

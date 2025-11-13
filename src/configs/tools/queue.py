@@ -3,6 +3,9 @@ import os
 import re
 import urllib.parse
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from configs.rules.notas import rules_dict
 from configs.tools.aws.sqs import AWSSQSManager
 from table_pdf_extractor import PDFTableExtractor

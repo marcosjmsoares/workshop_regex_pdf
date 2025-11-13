@@ -8,7 +8,7 @@ class AWSSQSManager:
         self,
         access_key: str = None,
         secret_key: str = None,
-        region_name: str = "us-west-1",
+        region_name: str = "us-east-1",
     ):
 
         if (

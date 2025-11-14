@@ -1,5 +1,5 @@
 Os pdfs estao no repositorio na pasta src/files/pdf/jornada
-
+repositorio: https://github.com/FabioCantarimM/101-regex-pdf/tree/main
 
 aula começa em 11
 
@@ -9,8 +9,103 @@ minuto 30 = upload arquivos na AWS
 
 minuto 35 = importando pdf
 
-minuto 39 = configurando arquivo .py
+minuto 39 = configurando arquivos .py
 
 minuto 1:22 = executando arquivo text_pdf_extractor.py
 
+minuto 1:50 = testando os arquivos .py
+
 minuto 2:16 =  carregando arquivo via python
+
+minuto 2:59:11 = dbeaver
+
+minuto 3:32:30 = configuração EC2 (banco)
+
+minuto 3:37 = make deploy (sobe a maquina pra amazon)
+
+minuto 3:45 = subindo EC2
+
+minuto 3:53 = abre maquina ec2 e instala as dependencias (docker..)
+
+minuto 3:57 = executa makefile
+
+minuto 4:00 = ajustes no ambiente e correção de alguns bugs
+
+
+-----------------------------------------------------------------------
+
+comandos criar maquina aws
+
+# 1. Atualizar sistema
+sudo apt update && sudo apt upgrade -y
+
+# 2. Instalar dependências
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+
+# 3. Adicionar chave GPG do Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# 4. Adicionar repositório Docker
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# 5. Atualizar com novo repositório
+sudo apt update
+
+# 6. Instalar Docker CE (versão oficial)
+sudo apt install docker-ce docker-ce-cli containerd.io -y
+
+# 7. Iniciar e habilitar Docker
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# 8. Adicionar usuário ao grupo docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+# 9. Verificar instalação
+docker --version
+
+--INSTALAR AWS NA MAQUINA VIRTUAL
+# 10. Atualizar pacotes
+sudo apt update
+
+# 11. Instalar dependências
+sudo apt install unzip curl -y
+
+#12. Baixar o instalador do AWS CLI v2
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+# 13. Extrair o arquivo
+unzip awscliv2.zip
+
+# 14. Instalar
+sudo ./aws/install
+
+# 15. Verificar instalação
+aws --version
+
+#16. Configurar credenciais aws
+aws configure 
+
+--alterar as tags
+aws ecr get-login-password --region $(REGION) | docker login --username AWS --password-stdin $(ACCOUNT_ID).dkr.ecr.$(REGION).amazonaws.com
+
+#alterar credenciais abaixo
+docker pull $(ACCOUNT_ID).dkr.ecr.$(REGION).amazonaws.com/$(REPOSITORY_NAME):latest
+
+docker images -> pegar image id e repository name. incluir no comando abaixo e executar no aws ec2
+
+docker run \
+		-e DB_NAME="$(DB_NAME)" \
+		-e DB_USER="$(DB_USER)" \
+		-e DB_PASSWORD="$(DB_PASSWORD)" \
+		-e DB_HOST="$(DB_HOST)" \
+		-e AWS_BUCKET="$(AWS_BUCKET)" \
+		-e AWS_REGION="$(AWS_REGION)" \
+		-e AWS_ACCESS_KEY_ID="$(AWS_ACCESS_KEY_ID)" \
+		-e AWS_SECRET_ACCESS_KEY="$(AWS_SECRET_ACCESS_KEY)" \
+		-e HTML_QUEUE_NAME="$(HTML_QUEUE_NAME)" \
+		-e QUEUE_NAME="$(QUEUE_NAME)" \
+		$(REPOSITORY_NAME)
+
+
